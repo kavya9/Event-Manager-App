@@ -1,0 +1,64 @@
+<html >
+    <head>
+        <title>{% block title %}Welcome{% endblock %}</title>
+        <!--to work for any view port-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--loads path to static files-->
+        {% load staticfiles %}
+        {% load admin_urls %}
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/style.css"%}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/css/bootstrap.min.css"%}"/>
+        <script src="{% static "eventManager/jquery.js"%}"></script>
+        <script src="{% static "eventManager/js/bootstrap.min.js"%}"></script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron" style="background-color:#0AC9B2;width:100%;padding:3%">
+               <div class ="text-center" style=" font-size: 300%;color:#F8FBFC;"> ANITS EVENT MANAGER</div>
+        </div>
+        <div class="container-fluid">
+
+            <br><br><br><br>
+            <div class="col-md-3">
+                <img src="{% static "eventManager/images/Admin-icon.png"%}" width="250" height="250">
+                <br><br><br>
+                <div style="margin-left: 20%;">
+                    <button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='{%  url "eventManager:adminLogin"  %}'">
+                            Admin
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img src="{% static "eventManager/images/Teacher-icon.png"%}" width="250" height="250">
+                <br><br><br>
+                <div style="margin-left: 20%;">
+                    <button type = "button" class = "btn btn-primary btn-lg" id="b1" onclick="location.href='{%  url "eventManager:teacherLogin"  %}'">
+                       Teacher
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img src="{% static "eventManager/images/Graduate-female-icon.png"%}" width="250" height="250">
+                <br><br><br>
+                <div style="margin-left: 20%;">
+                    <button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='{%  url "eventManager:studentLogin"  %}'">
+                       Student
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img src="{% static "eventManager/images/Zoom-icon.png"%}" width="250" height="250">
+                <br><br><br>
+                <div style="margin-left: 20%;">
+                    <button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='{%  url "eventManager:about"  %}'">
+                       About The App
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+
+</html>

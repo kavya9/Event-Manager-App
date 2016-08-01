@@ -1,0 +1,40 @@
+<html >
+    <head>
+        <title>event-form</title>
+        <!--to work for any view port-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--loads path to static files-->
+        {% load staticfiles %}
+        {% load admin_urls %}
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/style.css"%}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/css/bootstrap.min.css"%}"/>
+        <script src="{% static "eventManager/jquery.js"%}"></script>
+        <script src="{% static "eventManager/js/bootstrap.min.js"%}"></script>
+    </head>
+    <body>
+        <div class="jumbotron" style="background-color:#0AC9B2;width:100%;padding:3%">
+               <div class ="text-center" style="align:center; font-size: 300%;color:#F8FBFC;"> ANITS EVENT MANAGER</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-7" >
+                <div class="panel-body" >
+                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'eventManager/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <br><br>
+                                <button type="submit" class="btn btn-success" style="margin-left: 80%;">create</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div align="center">
+            <h4><b>Date Format : YYYY-MM-DD<br><br>Time Format : hh:mm (or) hh:mm:ss</b></h4>
+        </div>
+    </body>
+</html>

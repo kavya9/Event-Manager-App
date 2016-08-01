@@ -1,0 +1,32 @@
+<html >
+    <head>
+        <title>{% block title %}Welcome{% endblock %}</title>
+        <!--to work for any view port-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--loads path to static files-->
+        {% load staticfiles %}
+        {% load admin_urls %}
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/style.css"%}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/css/bootstrap.min.css"%}"/>
+        <script src="{% static "eventManager/jquery.js"%}"></script>
+        <script src="{% static "eventManager/js/bootstrap.min.js"%}"></script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron" style="background-color:#0AC9B2;width:100%;padding:3%">
+               <div class ="text-center" style=" font-size: 300%;color:#F8FBFC;"> ANITS EVENT MANAGER</div>
+        </div>
+        <br><br><br>
+        <div class="center-block" style="max-width:400px">
+            <button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='{%  url "eventManager:teacherRegister"  %}'">
+                Register Teacher
+            </button>
+            &nbsp&nbsp
+            <button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='{%  url "admin:index"  %}'">
+                Register Student
+            </button>
+        </div>
+
+    </body>
+</html>

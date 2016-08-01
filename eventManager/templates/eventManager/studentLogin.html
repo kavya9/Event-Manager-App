@@ -1,0 +1,94 @@
+<html>
+    <head>
+        {% load staticfiles %}
+        {% load admin_urls %}
+        <title>{% block title %}student-login-form{% endblock %}</title>
+        <!--to work for any view port-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--loads path to static files-->
+
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/style.css"%}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/signin.css"%}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/css/bootstrap.min.css"%}"/>
+        <script src="{% static "eventManager/jquery.js"%}"></script>
+        <script src="{% static "eventManager/js/bootstrap.min.js"%}"></script>
+    </head>
+    <body>
+        <div class="jumbotron" style="background-color:#0AC9B2;width:100%;padding:3%;margin:0;">
+               <div class ="text-center" style="align:center; font-size: 300%;color:#F8FBFC;"> ANITS EVENT MANAGER</div>
+        </div>
+
+        <div class="container-fluid" style="padding: 10%;">
+        <form class="form-signin" method="POST">
+            {% csrf_token %}
+            <!--<h2 class="Enter Details" style="align:center;">Enter Details</h2>-->
+            <div class="text-center" style="font-size: 230%;">Enter Details</div><br><br>
+             <label for="inputUserName" class="sr-only">Roll Number</label>
+             <input type="text" id="inputUserName" class="form-control" placeholder="roll number" required autofocus>
+             <label for="inputPassword" class="sr-only">Password</label>
+             <input type="password" id="inputPassword" class="form-control"  placeholder="Password" required>
+             <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+        </div>
+        <div id="success_div"></div>
+       <script>
+
+        //For getting CSRF token
+        function getCookie(name) {
+               var cookieValue = null;
+               if (document.cookie && document.cookie != '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                 var cookie = jQuery.trim(cookies[i]);
+                 // Does this cookie string begin with the name we want?
+                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                     break;
+                  }
+             }
+         }
+         return cookieValue;
+        }
+
+        $(".form-signin").submit(function(e) {
+
+         e.preventDefault();
+
+         var csrftoken = getCookie('csrftoken');
+
+         var userName = $('#inputUserName').val();
+
+         var password = $('#inputPassword').val();
+
+        //This is the Ajax post.Observe carefully. It is nothing but details of where_to_post,what_to_post
+         $.ajax({
+                 url : window.location.href, // the endpoint,commonly same url
+                 type : "POST", // http method
+                 data : { csrfmiddlewaretoken : csrftoken,
+                 userName : userName,
+                 password : password
+         }, // data sent with the post request
+
+         // handle a successful response
+         success : function(json) {
+
+              obj=JSON.parse(json)
+             console.log(json);
+              if(obj.length===0) {
+                  window.alert("enter valid credentails");
+              }
+             else
+                     window.location.href='{% url "eventManager:studentOptions" 0 %}'.replace('0', obj[0].id);
+         },
+
+         // handle a non-successful response
+         error : function(xhr,errmsg,err) {
+         console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+         }
+         });
+        });
+
+        </script>
+
+    </body>
+</html>

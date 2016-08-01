@@ -1,0 +1,29 @@
+<html >
+    <head>
+        {% load staticfiles %}
+        {% load admin_urls %}
+        <title>{% block title %}teacher-invalid-dept{% endblock %}</title>
+        <!--to work for any view port-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--loads path to static files-->
+
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/style.css"%}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/css/bootstrap.min.css"%}"/>
+        <script src="{% static "eventManager/jquery.js"%}"></script>
+        <script src="{% static "eventManager/js/bootstrap.min.js"%}"></script>
+    </head>
+    <body>
+        <div class="jumbotron" style="background-color:#0AC9B2;width:100%;padding:3%">
+               <div class ="text-center" style="align:center; font-size: 300%;color:#F8FBFC;"> ANITS EVENT MANAGER</div>
+        </div>
+        <div align="center">
+            <h3>You Have Entered invalid department</h3>
+        </div>
+        <br><br><br>
+        <div align="center">
+            <button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='/eventManager/adminLogin/{{ id }}/registerTeacher/' ">
+                        ok
+            </button>
+        </div>
+    </body>
+</html>

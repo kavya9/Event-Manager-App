@@ -1,0 +1,76 @@
+<html >
+    <head>
+        {% load staticfiles %}
+        {% load admin_urls %}
+        <title>{% block title %}teacher-login{% endblock %}</title>
+        <!--to work for any view port-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--loads path to static files-->
+
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/style.css"%}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/css/bootstrap.min.css"%}"/>
+        <script src="{% static "eventManager/jquery.js"%}"></script>
+        <script src="{% static "eventManager/js/bootstrap.min.js"%}"></script>
+    </head>
+    <body>
+        <div class="jumbotron" style="background-color:#0AC9B2;width:100%;padding:3%">
+               <div class ="text-center" style="align:center; font-size: 300%;color:#F8FBFC;"> ANITS EVENT MANAGER</div>
+        </div>
+        <div class="container-fluid">
+            <div class="text-center" style="font-size:175%">Click on any department to view its faculty</div><br>
+            <div class="row">
+                <div class =col-md-3>
+                    <a class="thumbnail" onclick="location.href='CSE/facultyList'">
+                    <img class="img-responsive" id="img" src="{% static "eventManager/images/cse-image.jpg"%}" alt="">
+                </a>
+                </div>
+                <div class =col-md-3>
+                    <a class="thumbnail"  onclick="location.href='ECE/facultyList'">
+                    <img class="img-responsive" id="img" src="{% static "eventManager/images/Electronics-communication.jpg"%}" alt="">
+                </a>
+                </div>
+                <div class =col-md-3>
+                    <a class="thumbnail" onclick="location.href='EEE/facultyList'">
+                    <img class="img-responsive" id="img" src="{% static "eventManager/images/electrical-electronics-engineering-EEE-image.jpg"%}" alt="">
+                </a>
+                </div>
+                <div class =col-md-offset-3>
+                    <br><br>
+                    <div class="text-center"  style="font-size:175%">Click the below button to login</div><br>
+                    <div align="center" >
+                    <button type = "button" class = "btn btn-primary btn-lg" styles="padding:0px;" onclick="location.href='{%  url "eventManager:teacherLoginForm"  %}'">
+                        Login
+                    </button>
+                    </div>
+                </div>
+
+            </div>
+            <br><br>
+             <div class="row">
+                <div class =col-md-3>
+                    <a class="thumbnail" onclick="location.href='civil/facultyList'">
+                    <img class="img-responsive" id="img" src="{% static "eventManager/images/CEcover.jpg"%}" alt="">
+                </a>
+                </div>
+                <div class =col-md-3>
+                    <a class="thumbnail"onclick="location.href='mechanical/facultyList'">
+                    <img class="img-responsive" id="cse" src="{% static "eventManager/images/download.jpg"%}" alt="">
+                </a>
+                </div>
+                <div class =col-md-3>
+                    <a class="thumbnail"onclick="location.href='IT/facultyList'">
+                    <img class="img-responsive" id="img" src="{% static "eventManager/images/information-technology.jpg"%}" alt="">
+                </a>
+                </div>
+
+                <div class =col-md-3>
+                    <a class="thumbnail" onclick="location.href='chemical/facultyList'">
+                    <img class="img-responsive" id="img" src="{% static "eventManager/images/Master-program-Chemical-Engineering-distance-education.jpg"%}" alt="">
+                </a>
+                </div>
+            </div>
+
+        </div>
+    </body>
+
+</html>

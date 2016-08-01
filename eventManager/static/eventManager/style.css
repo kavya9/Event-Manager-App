@@ -1,0 +1,10 @@
+body
+{
+    background:url("images/Paper-Background.jpg");
+    margin:0;
+    padding:0 0 0 0;
+}
+.img-responsive
+{
+    height:200px
+}

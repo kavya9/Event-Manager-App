@@ -1,0 +1,76 @@
+<html >
+    <head>
+        {% load staticfiles %}
+        {% load admin_urls %}
+        <title>{% block title %}student-details{% endblock %}</title>
+        <!--to work for any view port-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--loads path to static files-->
+
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/style.css"%}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/css/bootstrap.min.css"%}"/>
+        <script src="{% static "eventManager/jquery.js"%}"></script>
+        <script src="{% static "eventManager/js/bootstrap.min.js"%}"></script>
+    </head>
+    <body>
+        <div class="jumbotron" style="background-color:#0AC9B2;width:100%;padding:3%">
+               <div class ="text-center" style="align:center; font-size: 300%;color:#F8FBFC;"> ANITS EVENT MANAGER</div>
+        </div>
+
+        <div style="text-align: center;font-size: 150%;">
+            <h2 > Your Details</h2>
+        </div>
+        <br><br>
+
+        <table class="table" >
+
+            <tbody>
+             {% for s in student %}
+                    <tr>
+                        <th style="text-align: center">Student id</th>
+                        <td style="text-align: center">
+                            {{ s.id }}
+                        </td>
+                     </tr>
+                    <tr>
+                        <th style="text-align: center">Student name</th>
+                        <td style="text-align: center">
+                            {{ s.studentName }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">Roll Number</th>
+                        <td style="text-align: center">
+                            {{ s.studentRollNumber}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">Department</th>
+                        <td style="text-align: center">
+                            {{ s.studentDept }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">C.G.P.A</th>
+                        <td style="text-align: center">
+                            {{ s.studentCGPA }}
+                        </td>
+                     </tr>
+                    <tr>
+                        <th style="text-align: center">Attendance</th>
+                        <td style="text-align: center">
+                            {{ s.studentAttendance }}
+                        </td>
+                    </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+        <br><br>
+        <div align="center">
+            <button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='/eventManager/studentLogin/{{ id }}/' ">
+                        ok
+            </button>
+        </div>
+    </body>
+</html>

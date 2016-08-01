@@ -1,0 +1,58 @@
+<html >
+    <head>
+        <title>{% block title %}student options{% endblock %}</title>
+        <!--to work for any view port-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--loads path to static files-->
+        {% load staticfiles %}
+        {% load admin_urls %}
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/style.css"%}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/css/bootstrap.min.css"%}"/>
+        <script src="{% static "eventManager/jquery.js"%}"></script>
+        <script src="{% static "eventManager/js/bootstrap.min.js"%}"></script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron" style="background-color:#0AC9B2;width:100%;padding:3%">
+               <div class ="text-center" style=" font-size: 300%;color:#F8FBFC;"> ANITS EVENT MANAGER</div>
+        </div>
+        <h3 align="center">student is logged in</h3>
+        <br><br><br>
+
+       <div align="center">
+            <div class="center-block" style="max-width:400px">
+                 &nbsp &nbsp &nbsp&nbsp<button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='viewDetailsS'">
+                    view my details
+                </button>
+                <br><br><br>
+                &nbsp &nbsp &nbsp&nbsp<button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='viewMyEventsS'">
+                    view my events
+                </button>
+                 &nbsp &nbsp &nbsp&nbsp<button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='viewAllEventsS'">
+                    view all events
+                </button>
+                <br><br><br>
+                &nbsp&nbsp&nbsp &nbsp&nbsp
+                 <button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='viewMyDeptEvents'">
+                     view my Department events
+                </button>
+                <br><br><br>
+                &nbsp &nbsp &nbsp&nbsp &nbsp
+                 <button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='registerEvent'">
+                    Register for event
+                </button>
+                &nbsp &nbsp &nbsp&nbsp &nbsp<br><br><br>
+                 <button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='givefeedback'">
+                    give feed back for event
+                </button>
+                <br><br><br>
+                &nbsp &nbsp &nbsp&nbsp &nbsp
+                <button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='/eventManager/'">
+                    logout
+                </button>
+            </div>
+       </div>
+
+    </body>
+</html>

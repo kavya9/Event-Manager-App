@@ -1,0 +1,95 @@
+<html >
+    <head>
+        {% load staticfiles %}
+        {% load admin_urls %}
+        <title>{% block title %}event-registered{% endblock %}</title>
+        <!--to work for any view port-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--loads path to static files-->
+
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/style.css"%}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/css/bootstrap.min.css"%}"/>
+        <script src="{% static "eventManager/jquery.js"%}"></script>
+        <script src="{% static "eventManager/js/bootstrap.min.js"%}"></script>
+    </head>
+    <body>
+        <div class="jumbotron" style="background-color:#0AC9B2;width:100%;padding:3%">
+               <div class ="text-center" style="align:center; font-size: 300%;color:#F8FBFC;"> ANITS EVENT MANAGER</div>
+        </div>
+
+        <div style="text-align: center;font-size: 150%;">
+            <h2 > Details of registered event</h2>
+        </div>
+        <br><br>
+
+        <table class="table" >
+
+            <tbody>
+             {% for event in events %}
+                    <tr>
+                        <th style="text-align: center">Event id</th>
+                        <td style="text-align: center">
+                            {{ event.id }}
+                        </td>
+                     </tr>
+                    <tr>
+                        <th style="text-align: center">Event name</th>
+                        <td style="text-align: center">
+                            {{ event.eventName }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">Resource person</th>
+                        <td style="text-align: center">
+                            {{ event.resourcePerson}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">Event date</th>
+                        <td style="text-align: center">
+                            {{ event.eventDate }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">Event start time</th>
+                        <td style="text-align: center">
+                            {{ event.eventStartTime }}
+                        </td>
+                     </tr>
+                    <tr>
+                        <th style="text-align: center">Event end time</th>
+                        <td style="text-align: center">
+                            {{ event.eventEndTime }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">Event venue</th>
+                        <td style="text-align: center">
+                            {{ event.eventVenue }}
+                        </td>
+                     </tr>
+                    <tr>
+                        <th style="text-align: center">Event rating</th>
+                        <td style="text-align: center">
+                            {{ event.eventRating }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">no of students registered</th>
+                        <td style="text-align: center">
+                            {{ event.studentsRegistered }}
+                        </td>
+
+                    </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+        <br><br>
+        <div align="center">
+            <button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='/eventManager/studentLogin/{{ id }}/' ">
+                        ok
+            </button>
+        </div>
+    </body>
+</html>

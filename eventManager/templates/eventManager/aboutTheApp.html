@@ -1,0 +1,42 @@
+<html >
+    <head>
+        <title>{% block title %}About{% endblock %}</title>
+        <!--to work for any view port-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--loads path to static files-->
+        {% load staticfiles %}
+        {% load admin_urls %}
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/style.css"%}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "eventManager/css/bootstrap.min.css"%}"/>
+        <script src="{% static "eventManager/jquery.js"%}"></script>
+        <script src="{% static "eventManager/js/bootstrap.min.js"%}"></script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron" style="background-color:#0AC9B2;width:100%;padding:3%">
+               <div class ="text-center" style=" font-size: 300%;color:#F8FBFC;"> ANITS EVENT MANAGER</div>
+        </div>
+        <div class="container-fluid">
+            <h1 align="center">About This Website</h1><br><br>
+                    <h4>
+                        <ol>
+                            <li>This website helps universities or colleges to organize events like hackathons, workshops, guest lectures and related stuff effectively by booking the required resources well in advance.</li><br><br>
+                            <li>Admin (belongs to college / university management) can register students and teachers</li><br><br>
+                            <li> A registered Teacher can register an event for which students of one or more departments are eligible.</li><br><br>
+                            <li>He/She can  view details of faculty of various departments ,his events and can also view events organised by other faculty.</li><br><br>
+                            <li>A registered Student can view his/her details,C.G.P.A , Attendance</li><br><br>
+                            <li>He/She can also view all the events of the college,events registered by him and events organised by his / her department.</li><br><br>
+                            <li>A student can register to an event(which is atleast one day after the day of registration) to which he is eligible </li><br><br>
+                            <li> In addition to this the students will also be given feedback form(only for events he is registered to) to rate the event success and give credits to teacher.</li><br><br>
+                            <li>This app helps the university or any particular department to grow faster by having the knowledge of how and who are organizing things like events well in the corresponding sector of university or college.</li><br><br>
+                        </ol>
+                    </h4>
+        </div>
+        <div align="center">
+            <button type = "button" class = "btn btn-primary btn-lg" onclick="location.href='/eventManager/' ">
+                        ok
+            </button>
+        </div>
+    </body>
+</html>
